@@ -14,7 +14,6 @@ export default function CrearPerfil() {
   const [step, setStep] = useState(0)
   const [err, setErr] = useState('')
   const [preview, setPreview] = useState(null)
-  const [photoFile, setFile] = useState(null)
 
   const [f, setF] = useState({
     nombre: '',
@@ -34,7 +33,6 @@ export default function CrearPerfil() {
   const handlePhoto = (e) => {
     const file = e.target.files[0]
     if (!file) return
-    setFile(file)
     const r = new FileReader()
     r.onloadend = () => setPreview(r.result)
     r.readAsDataURL(file)
@@ -68,15 +66,21 @@ export default function CrearPerfil() {
       setErr(e)
       return
     }
+
     setErr('')
 
-    await createProfile({
-      ...f,
-      edad: +f.edad,
-      fotoBase64: preview,
-    }, photoFile)
+    try {
+      await createProfile({
+        ...f,
+        edad: +f.edad,
+        fotoBase64: preview,
+      })
 
-    navigate('/feed')
+      navigate('/feed')
+    } catch (err) {
+      console.error(err)
+      setErr('No se pudo guardar el perfil. Probá de nuevo.')
+    }
   }
 
   return (

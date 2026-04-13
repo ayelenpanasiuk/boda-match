@@ -1,43 +1,114 @@
-const createProfile = useCallback(async (formData) => {
-  if (!supabase) {
-    throw new Error('Supabase no está configurado')
-  }
+import { createContext, useContext, useState, useEffect, useCallback } from 'react'
+import { supabase } from '../lib/supabase'
 
-  setLoading(true)
+const Ctx = createContext(null)
 
-  try {
+export function AppProvider({ children }) {
+  const [me, setMe] = useState(null)
+  const [profiles, setProfiles] = useState([])
+  const [swiped, setSwiped] = useState([])
+  const [matches, setMatches] = useState([])
+  const [newMatch, setNewMatch] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  // cargar usuario local
+  useEffect(() => {
+    const saved = localStorage.getItem('bm_me')
+    if (saved) setMe(JSON.parse(saved))
+  }, [])
+
+  // cargar perfiles desde supabase
+  const loadProfiles = useCallback(async () => {
+    const { data } = await supabase.from('profiles').select('*')
+    setProfiles(data || [])
+  }, [])
+
+  useEffect(() => {
+    loadProfiles()
+  }, [loadProfiles])
+
+  // crear perfil REAL
+  const createProfile = async (data) => {
+    setLoading(true)
+
     const payload = {
-      nombre: formData.nombre || '',
-      edad: Number(formData.edad),
-      ciudad: formData.ciudad || '',
-      signo: formData.signo || '',
-      genero: formData.genero || 'M',
-      como_conoce: formData.como_conoce || '',
-      hobbies: [],
-      bebida: formData.bebida || '',
-      instagram: formData.instagram || '',
-      whatsapp: formData.whatsapp || '',
-      bio: formData.bio || '',
-      badges: [],
-      foto: formData.fotoBase64 || '',
+      ...data,
+      edad: Number(data.edad),
+      foto: data.fotoBase64 || '',
       is_fake: false,
     }
 
-    const { data, error } = await supabase
+    const { data: res, error } = await supabase
       .from('profiles')
       .insert([payload])
       .select()
       .single()
 
     if (error) {
-      console.error('ERROR INSERT PROFILE:', error)
-      throw error
+      console.error(error)
+      alert('Error creando perfil')
+      setLoading(false)
+      return
     }
 
-    setMe(data)
-    await loadProfiles()
-    return data
-  } finally {
+    setMe(res)
+    localStorage.setItem('bm_me', JSON.stringify(res))
     setLoading(false)
+    loadProfiles()
   }
-}, [loadProfiles, setMe])
+
+  // swipe REAL
+  const doSwipe = async (targetId, dir) => {
+    if (!me) return
+
+    await supabase.from('likes').insert([
+      {
+        from_user: me.id,
+        to_user: targetId,
+        type: dir,
+      },
+    ])
+
+    setSwiped([...swiped, targetId])
+
+    // check match
+    const { data } = await supabase
+      .from('likes')
+      .select('*')
+      .eq('from_user', targetId)
+      .eq('to_user', me.id)
+      .maybeSingle()
+
+    if (data && (dir === 'right' || dir === 'superlike')) {
+      const profile = profiles.find(p => p.id === targetId)
+      setNewMatch({ profile })
+      setMatches([...matches, profile])
+    }
+  }
+
+  const feedProfiles = () => {
+    return profiles.filter(p => p.id !== me?.id && !swiped.includes(p.id))
+  }
+
+  return (
+    <Ctx.Provider value={{
+      me,
+      profiles,
+      matches,
+      newMatch,
+      loading,
+      createProfile,
+      doSwipe,
+      feedProfiles,
+      clearMatch: () => setNewMatch(null),
+      reset: () => {
+        localStorage.clear()
+        window.location.href = '/'
+      }
+    }}>
+      {children}
+    </Ctx.Provider>
+  )
+}
+
+export const useApp = () => useContext(Ctx)

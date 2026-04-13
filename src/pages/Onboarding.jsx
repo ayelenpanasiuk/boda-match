@@ -16,7 +16,7 @@ const STEPS = [
     color: '#4ade80',
     title: 'Si hay match...',
     sub: 'Ya sabés',
-    desc: 'Si hay match… háganse cargo 😏'
+    desc: 'háganse cargo 😏'
   },
   {
     emoji: '🎯',

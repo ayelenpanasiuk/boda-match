@@ -1,0 +1,118 @@
+export const FAKE_PROFILES = [
+  { id:'fp1', nombre:'Valentina', edad:27, ciudad:'Buenos Aires', signo:'♊ Géminis', genero:'F',
+    como_conoce:'Amiga de la novia desde el jardín', hobbies:['Yoga','Cocina thai','Netflix'],
+    bebida:'🍷 Malbec', instagram:'@vale.moves',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Valentina&backgroundColor=b6e3f4,ffdfbf',
+    badges:['Amiga de la novia','Team perreo','Soltera codiciada'],
+    bio:'Bailarina frustrada, chef improvisada. Vine a la boda a comer bien y quién sabe qué más 😏' },
+
+  { id:'fp2', nombre:'Mateo', edad:31, ciudad:'Córdoba', signo:'♌ Leo', genero:'M',
+    como_conoce:'Primo del novio', hobbies:['Surf','Guitarra','CrossFit'],
+    bebida:'🍺 Cerveza artesanal', instagram:'@mateo.surf',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Mateo&backgroundColor=ffdfbf,d1f4e0',
+    badges:['Primo del novio','Soltero codiciado','Team pista'],
+    bio:'Llegué desde Córdoba con el corazón abierto y la valija llena de buena onda. Y mate.' },
+
+  { id:'fp3', nombre:'Sofía', edad:25, ciudad:'Rosario', signo:'♎ Libra', genero:'F',
+    como_conoce:'Compañera de trabajo de la novia', hobbies:['Fotografía','Viajes','Pilates'],
+    bebida:'🥂 Champagne', instagram:'@sofi.lens',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Sofia&backgroundColor=d1f4e0,c0aede',
+    badges:['Compañera de trabajo','Team foto','En modo boda'],
+    bio:'Fotógrafa de bodas que esta vez viene de invitada. No prometo no sacar fotos igual.' },
+
+  { id:'fp4', nombre:'Nicolás', edad:29, ciudad:'Buenos Aires', signo:'♐ Sagitario', genero:'M',
+    como_conoce:'Amigo del novio del futsal', hobbies:['Fútbol','Asado','Series'],
+    bebida:'🥃 Fernet con Coca', instagram:'@nico.goals',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Nicolas&backgroundColor=ffd5dc,b6e3f4',
+    badges:['Amigo del novio','Team asado','Soltero por elección'],
+    bio:'Vine por el buffet libre. Si encuentro algo más, bienvenido sea. Sin presiones.' },
+
+  { id:'fp5', nombre:'Camila', edad:28, ciudad:'Mendoza', signo:'♒ Acuario', genero:'F',
+    como_conoce:'Prima de la novia', hobbies:['Sommelier amateur','Trekking','Meditación'],
+    bebida:'🍷 Pinot Noir', instagram:'@cami.mza',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Camila&backgroundColor=c0aede,ffdfbf',
+    badges:['Prima de la novia','Experta en vinos','Team romántica'],
+    bio:'Mendocina, catadora de vinos y de momentos bonitos. Esta boda me parece prometedora.' },
+
+  { id:'fp6', nombre:'Tomás', edad:33, ciudad:'CABA', signo:'♏ Escorpio', genero:'M',
+    como_conoce:'Jefe de la novia (off the record)', hobbies:['Jazz','Arquitectura','Cocina italiana'],
+    bebida:'🍸 Negroni', instagram:'@tomas.arch',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Tomas&backgroundColor=b6e3f4,d1f4e0',
+    badges:['Invitado misterioso','Team elegante','Soltero premium'],
+    bio:'No suelo ir a bodas. Algo me dijo que esta sería diferente. Spoiler: tenía razón.' },
+
+  { id:'fp7', nombre:'Julieta', edad:26, ciudad:'La Plata', signo:'♋ Cáncer', genero:'F',
+    como_conoce:'Compañera de facu del novio', hobbies:['Teatro','Escritura','Café de especialidad'],
+    bebida:'☕ Flat white', instagram:'@juli.escribe',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Julieta&backgroundColor=ffdfbf,ffd5dc',
+    badges:['Compañera de facu','Team cultura','Romántica empedernida'],
+    bio:'Escritora buscando su próxima historia. Puede que esta empiece acá. ✍️' },
+
+  { id:'fp8', nombre:'Rodrigo', edad:30, ciudad:'Mar del Plata', signo:'♉ Tauro', genero:'M',
+    como_conoce:'Vecino de la infancia del novio', hobbies:['Surf','Pesca','DJ amateur'],
+    bebida:'🍺 IPA', instagram:'@rodri.mdq',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Rodrigo&backgroundColor=d1f4e0,b6e3f4',
+    badges:['Amigo de toda la vida','Team DJ','Surfista sin olas'],
+    bio:'Vine en auto desde Mardel. Solo por la fiesta. Y tal vez por algo más.' },
+
+  { id:'fp9', nombre:'Agustina', edad:24, ciudad:'Buenos Aires', signo:'♍ Virgo', genero:'F',
+    como_conoce:'Hermana de la novia', hobbies:['Danza árabe','Repostería','Redes sociales'],
+    bebida:'🍹 Aperol Spritz', instagram:'@agus.dance',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Agustina&backgroundColor=ffd5dc,c0aede',
+    badges:['Hermana de la novia','Team perreo','Organizadora oficial'],
+    bio:'Bailé en el 15 de mi hermana. En su boda no voy a parar. Fair warning.' },
+
+  { id:'fp10', nombre:'Federico', edad:32, ciudad:'Tucumán', signo:'♈ Aries', genero:'M',
+    como_conoce:'Amigo del novio de la uni', hobbies:['Montañismo','Guitarra criolla','Economía'],
+    bebida:'🍵 Mate (siempre)', instagram:'@fede.montaña',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Federico&backgroundColor=c0aede,ffdfbf',
+    badges:['Amigo del novio','Viajero','Team charla profunda'],
+    bio:'Tucumano en Buenos Aires por 48 horas. Me sobra energía y me falta compañía.' },
+
+  { id:'fp11', nombre:'Martina', edad:27, ciudad:'Bariloche', signo:'♑ Capricornio', genero:'F',
+    como_conoce:'Amiga del viaje de egresados de la novia', hobbies:['Esquí','Cerveza artesanal','Senderismo'],
+    bebida:'🍺 Stout', instagram:'@marti.bariloche',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Martina&backgroundColor=b6e3f4,d1f4e0',
+    badges:['Amiga del viaje','Team aventura','Soltera viajera'],
+    bio:'Bajé de la cordillera para esto. Mejor que sea épico. (Spoiler: lo es.)' },
+
+  { id:'fp12', nombre:'Sebastián', edad:28, ciudad:'Salta', signo:'♊ Géminis', genero:'M',
+    como_conoce:'Primo segundo de la novia', hobbies:['Folclore','Cocina norteña','Fútbol'],
+    bebida:'🌿 Gin con hierbas', instagram:'@seba.salta',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Sebastian&backgroundColor=ffdfbf,ffd5dc',
+    badges:['Familia lejana','Team buen humor','El del norte'],
+    bio:'Salteño con acento y todo. No muerdo (mucho). Vine a conocer a la familia extendida.' },
+
+  { id:'fp13', nombre:'Florencia', edad:29, ciudad:'CABA', signo:'♓ Piscis', genero:'F',
+    como_conoce:'Amiga del gimnasio de la novia', hobbies:['Running','Mindfulness','Brunch'],
+    bebida:'🥤 Smoothie de mango', instagram:'@flor.wellness',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Florencia&backgroundColor=d1f4e0,b6e3f4',
+    badges:['Amiga del gym','Team saludable','Soltera consciente'],
+    bio:'Practico mindfulness pero esta noche me permito un poco de caos. Solo un poco.' },
+
+  { id:'fp14', nombre:'Ignacio', edad:34, ciudad:'Montevideo', signo:'♌ Leo', genero:'M',
+    como_conoce:'Amigo internacional del novio', hobbies:['Vela','Gastronomía','Tango'],
+    bebida:'🍷 Tannat uruguayo', instagram:'@nacho.uy',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Ignacio&backgroundColor=ffd5dc,c0aede',
+    badges:['Invitado internacional','Team tango','Misterioso del río'],
+    bio:'Cruzé el charco para esto. Mejor que valga la pena. (Pista: ya está valiendo.)' },
+
+  { id:'fp15', nombre:'Luciana', edad:26, ciudad:'Buenos Aires', signo:'♐ Sagitario', genero:'F',
+    como_conoce:'Vecina de la novia de toda la vida', hobbies:['Costura','Series coreanas','Patín'],
+    bebida:'🍸 Cosmopolitan', instagram:'@luci.cose',
+    foto:'https://api.dicebear.com/8.x/personas/svg?seed=Luciana&backgroundColor=c0aede,ffdfbf',
+    badges:['Vecina de siempre','Team moda','Soltera con estilo'],
+    bio:'Me hice el vestido yo misma. Si eso no es señal de que valgo la pena, no sé qué es.' },
+]
+
+export const SIGNOS = [
+  '♈ Aries','♉ Tauro','♊ Géminis','♋ Cáncer','♌ Leo','♍ Virgo',
+  '♎ Libra','♏ Escorpio','♐ Sagitario','♑ Capricornio','♒ Acuario','♓ Piscis',
+]
+
+export const BADGES_LIST = [
+  'Amigo/a de la novia','Amigo/a del novio','Prima/o de la novia','Prima/o del novio',
+  'Hermano/a de la novia','Hermano/a del novio','Compañero/a de trabajo',
+  'Compañero/a de facu','Team perreo','Team elegante','Team asado','Team pista',
+  'Soltero/a codiciado/a','En modo boda','Invitado misterioso',
+]

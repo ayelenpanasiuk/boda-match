@@ -1,4 +1,4 @@
-const createProfile = useCallback(async (formData, photoFile) => {
+const createProfile = useCallback(async (formData) => {
   if (!supabase) {
     throw new Error('Supabase no está configurado')
   }

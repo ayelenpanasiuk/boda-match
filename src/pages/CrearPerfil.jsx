@@ -77,8 +77,9 @@ export default function CrearPerfil() {
       })
 
       navigate('/feed')
-    } catch (err) {
-      console.error(err)
+    } catch (error) {
+      console.error('ERROR REAL:', error)
+      alert(`Error real: ${error?.message || JSON.stringify(error) || 'desconocido'}`)
       setErr('No se pudo guardar el perfil. Probá de nuevo.')
     }
   }

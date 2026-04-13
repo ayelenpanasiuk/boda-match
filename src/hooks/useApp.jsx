@@ -19,6 +19,12 @@ function ls(key, val) {
   }
 }
 
+function sanitizeUserForStorage(user) {
+  if (!user) return null
+  const { foto, ...rest } = user
+  return { ...rest, foto: '' }
+}
+
 export function AppProvider({ children }) {
   const [me, setMeState] = useState(null)
   const [allProfiles, setAllProfiles] = useState([])
@@ -30,7 +36,7 @@ export function AppProvider({ children }) {
 
   const setMe = useCallback((user) => {
     setMeState(user)
-    ls('me', user)
+    ls('me', sanitizeUserForStorage(user))
   }, [])
 
   const loadProfiles = useCallback(async () => {
@@ -195,9 +201,7 @@ export function AppProvider({ children }) {
 
       if (!reverseError && reverseLike) {
         const profile = allProfiles.find(p => p.id === targetId)
-        if (profile) {
-          setNewMatch({ profile })
-        }
+        if (profile) setNewMatch({ profile })
       }
     }
 

@@ -7,7 +7,7 @@ const STEPS = [
   {
     emoji: '💘',
     color: '#C9A96E',
-    title: 'Bienvenida a la experiencia',
+    title: 'Bienvenido a la experiencia',
     sub: 'Antes de empezar...',
     desc: 'Esto es solo para invitados. Jugá con respeto.'
   },

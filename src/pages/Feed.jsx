@@ -86,7 +86,7 @@ export default function Feed() {
             </h2>
 
             <p className="font-body text-white/45 text-base mb-3">
-              Ahora solo te falta encontrarlos en la boda.
+              Ahora solo te falta encontrarlos en la fiesta.
             </p>
 
             <p className="font-script text-wine-light text-xl mb-8">
